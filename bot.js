@@ -4,7 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const token = process.env.REACT_APP_BOT_TOKEN;
-const webAppUrl = 'https://biv222.github.io/tg-shop';
+const webAppUrl = 'https://myrobux.shop';
 
 const bot = new TelegramBot(token, { polling: true });
 const app = express();

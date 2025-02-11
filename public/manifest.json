@@ -1,6 +1,6 @@
 {
-  "name": "Telegram Shop",
   "short_name": "TG Shop",
+  "name": "Telegram Mini App Shop",
   "version": "1.0.0",
   "description": "Telegram Mini App Shop",
   "start_url": ".",
