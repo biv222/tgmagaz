@@ -9,7 +9,10 @@ window.Telegram.WebApp.ready();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <WebAppProvider options={{ smoothButtonsTransition: true }}>
+    <WebAppProvider options={{ 
+      smoothButtonsTransition: true,
+      async: true
+    }}>
       <App />
     </WebAppProvider>
   </React.StrictMode>

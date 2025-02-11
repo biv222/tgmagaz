@@ -5,7 +5,7 @@ import { useWebApp } from '@vkruglikov/react-telegram-web-app';
 
 function App() {
   const [cart, setCart] = useState([]);
-  const { webApp } = useWebApp();
+  const { webApp, platform } = useWebApp();
   
   useEffect(() => {
     if (webApp) {
@@ -51,7 +51,10 @@ function App() {
     }
   };
 
-  if (!webApp) {
+  // Проверяем, запущено ли приложение в Telegram
+  const isTelegram = Boolean(window.Telegram?.WebApp);
+
+  if (!isTelegram) {
     return (
       <Container>
         <Typography variant="h5" sx={{ mt: 4 }}>
