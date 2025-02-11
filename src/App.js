@@ -5,19 +5,27 @@ import { useWebApp } from '@vkruglikov/react-telegram-web-app';
 
 function App() {
   const [cart, setCart] = useState([]);
-  const { webApp, platform } = useWebApp();
+  const { webApp } = useWebApp();
   
   useEffect(() => {
-    if (webApp) {
-      webApp.ready();
-      webApp.expand();
-      
-      // Устанавливаем цвет верхней панели
-      webApp.setHeaderColor('#1976d2');
-      
-      // Устанавливаем основной цвет
-      webApp.setBackgroundColor('#ffffff');
-    }
+    const initApp = async () => {
+      if (webApp) {
+        try {
+          await webApp.ready();
+          webApp.expand();
+          
+          // Устанавливаем цвет верхней панели
+          webApp.setHeaderColor('#1976d2');
+          
+          // Устанавливаем основной цвет
+          webApp.setBackgroundColor('#ffffff');
+        } catch (error) {
+          console.error('Error initializing Telegram Web App:', error);
+        }
+      }
+    };
+    
+    initApp();
   }, [webApp]);
   
   const products = [
@@ -51,10 +59,7 @@ function App() {
     }
   };
 
-  // Проверяем, запущено ли приложение в Telegram
-  const isTelegram = Boolean(window.Telegram?.WebApp);
-
-  if (!isTelegram) {
+  if (!webApp) {
     return (
       <Container>
         <Typography variant="h5" sx={{ mt: 4 }}>
