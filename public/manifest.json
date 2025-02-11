@@ -1,0 +1,10 @@
+{
+  "name": "Telegram Shop",
+  "short_name": "TG Shop",
+  "version": "1.0.0",
+  "description": "Telegram Mini App Shop",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+} 
